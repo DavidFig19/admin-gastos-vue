@@ -46,7 +46,7 @@
                         id="nombre",
                         placeholder="Añade el Nombre del Gasto"
                         :value="nombre"
-                        @input="$emit('update:nombre',$event.target.vaue)"
+                        @input="$emit('update:nombre',+$event.target.value)"
                     />
                 </div>
 
@@ -58,7 +58,7 @@
                         id="cantidad",
                         placeholder="Añade la cantidad del Gasto, ej. 300"
                         :value="cantidad"
-                        @input="$emit('update:cantidad',+$event.target.vaue)"
+                        @input="$emit('update:cantidad',$event.target.value)"
                     />
                 </div>
 
@@ -68,7 +68,7 @@
                     <select 
                         id="categoria"
                         :value="categoria"
-                        @input="$emit('update:categoria',$event.target.vaue)"
+                        @input="$emit('update:categoria',$event.target.value)"
                     >
                         <option value="">-- Seleccione --</option>
                         <option value="ahorro">Ahorro</option>
