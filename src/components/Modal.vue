@@ -23,12 +23,16 @@
         categoria:{
             type:String,
             required:true
+        },
+        disponible:{
+            typeo:Number,
+            required:true
         }
     });
 
     const agregarGasto = () => {
         // Validar que no haya campos vacios
-        const { cantidad, categoria, nombre} = props;
+        const { cantidad, categoria, nombre, disponible} = props;
 
         if([nombre,cantidad,categoria].includes('')){
             error.value = 'Todos los campos son obligatorios'
@@ -46,6 +50,16 @@
             setTimeout(() => {
                 error.value = '';
             },300);
+            return;
+        }
+
+        // Validar que el usuario no gaste mas de lo disponible
+
+        if(cantidad > disponible){
+            error.value = 'Has excedido el Presupuesto';
+            setTimeout(() => {
+                error.value = '';
+            },3000);
             return;
         }
 
