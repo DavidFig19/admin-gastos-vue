@@ -5,7 +5,7 @@
 
     const error = ref('')
 
-    const emit = defineEmits(['ocultar-modal', 'guardar-gasto','update:nombre','update:cantidad','update:categoria', 'eliminar-gasto']);
+    const emit = defineEmits(['ocultar-modal', 'guardar-gasto','update:nombre','update:cantidad','update:categoria']);
 
     const props = defineProps({
         modal:{
@@ -165,15 +165,6 @@
                     :value="[isEditing ? 'Guardar Cambio' : 'Añadir Gasto']"
                 />
             </form>
-
-            <button
-                type="button"
-                class="btn-eliminar"
-                v-if="isEditing"
-                @click="$emit('eliminar-gasto')"
-            >
-                Eliminar Gasto
-            </button>
         </div>
     </div>
 
@@ -190,7 +181,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-
+        z-index: 999;
     }
 
     .cerrar-modal{

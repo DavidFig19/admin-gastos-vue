@@ -111,9 +111,9 @@
     mostrarModal();
   }
 
-  const eliminarGasto = () => {
+  const eliminarGasto = (id) => {
     if(confirm('¿Eliminar?')){
-      gastos.value = gastos.value.filter(gastoState => gastoState.id !== gasto.id)
+      gastos.value = gastos.value.filter(gastoState => gastoState.id !== id)
       ocultarModal()
     }
   }
@@ -155,6 +155,7 @@
           :key="gasto.id"
           :gasto="gasto"
           @seleccionar-gasto="seleccionarGasto"
+          @eliminar-gasto="eliminarGasto"
         />
       </div>
 
@@ -172,7 +173,6 @@
         @guardar-gasto="guardarGasto"
         :modal="modal"
         :disponible="disponible"
-        @eliminar-gasto="eliminarGasto"
         :id="gasto.id"
         v-model:nombre="gasto.nombre"
         v-model:cantidad="gasto.cantidad"
