@@ -3,6 +3,7 @@
   import Presupuesto from './components/Presupuesto.vue';
   import ControlPresupuesto from './components/ControlPresupuesto.vue';
   import Modal from './components/Modal.vue';
+  import { generarId } from './helpers';
 
   import iconoNuevoGasto from './assets/img/nuevo-gasto.svg'
 
@@ -51,7 +52,7 @@
   const guardarGasto = () => {
     gastos.value.push({
       ...gasto,
-      id:123,
+      id:generarId(),
     });
     
   }
