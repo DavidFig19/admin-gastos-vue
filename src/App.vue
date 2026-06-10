@@ -81,6 +81,13 @@
     })
   }
 
+  const seleccionarGasto = id => {
+    const gastoEditar = gastos.value.filter(gasto => gasto.id === id)[0]
+    Object.assign(gasto,gastoEditar);
+    mostrarModal();
+  }
+  
+
 </script>
 
 <template>
@@ -116,6 +123,7 @@
           v-for="gasto in gastos"
           :key="gasto.id"
           :gasto="gasto"
+          @seleccionar-gasto="seleccionarGasto"
         />
       </div>
 
