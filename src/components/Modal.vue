@@ -39,7 +39,7 @@
 
             setTimeout(() => {
                 error.value = '';
-            },300);
+            },3000);
             return;
             
         }
@@ -49,7 +49,7 @@
             error.value = 'Cantidad no válida';
             setTimeout(() => {
                 error.value = '';
-            },300);
+            },3000);
             return;
         }
 
