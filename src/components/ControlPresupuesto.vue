@@ -3,6 +3,8 @@
     import Presupuesto from './Presupuesto.vue';
     import { formatearCantidad } from '../helpers'
 
+    defineEmits(['reset-app']);
+
     const props = defineProps({
         presupuesto:{
             type:Number,
@@ -29,7 +31,9 @@
 
         <div class="contenedor-presupuesto">
             <button
+                type="button"
                 class="reset-app"
+                @click="$emit('reset-app')"
             >
             Resetear App
             </button>
